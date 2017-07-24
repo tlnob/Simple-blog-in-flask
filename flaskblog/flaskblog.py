@@ -18,7 +18,7 @@ app.config.from_envvar('FLASKBLOG_SETTINGS', silent=True)
 def connect_db():
     rv = sqlite3.connect(app.config['DATABASE'])
     rv.row_factory = sqlite3.Row
-    return rv
+    return rvgut 
 
 def get_db():
     if not hasattr(g,'sqlite_db'):
