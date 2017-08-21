@@ -18,7 +18,7 @@ app.config.from_envvar('FLASKBLOG_SETTINGS', silent=True)
 def connect_db():
     rv = sqlite3.connect(app.config['DATABASE'])
     rv.row_factory = sqlite3.Row
-    return rvgut 
+    return rv
 
 def get_db():
     if not hasattr(g,'sqlite_db'):
@@ -52,7 +52,7 @@ def show_entries():
 def add_entry():
     if not session.get('logged_in'):
         abort(401)
-    db.get_db()
+    db = get_db()
     db.execute('insert into entries (title, text) values (?,?)',
                 [request.form['title'], request.form['text']])
     db.commit()
@@ -78,5 +78,3 @@ def logout():
     session.pop('logged_in', None)
     flash('Logged out!')
     return redirect(url_for('show_entries'))
-
-
