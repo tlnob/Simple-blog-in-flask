@@ -1,4 +1,4 @@
-# blog_flask
+# simple blog in flask
 
 First of all, clone or download this repository
 
@@ -15,6 +15,8 @@ Then to access it you should type the following:
 `source <envname>/bin/activate`
 
 `pip install requirements.txt`
+
+For flask: 
 
 `export FLASK_APP=flaskblog.py`
 
